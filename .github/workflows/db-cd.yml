@@ -1,0 +1,39 @@
+name: DB CD
+
+# After a merge to main: dev -> staging -> prod.
+# Each stage starts only if the previous one succeeded.
+# prod also waits for a required reviewer to approve.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "db/**"
+      - ".github/workflows/db-cd.yml"
+      - ".github/workflows/_deploy-db.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: db-cd
+  cancel-in-progress: false
+
+jobs:
+  dev:
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: dev
+    secrets: inherit
+
+  staging:
+    needs: dev
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: staging
+    secrets: inherit
+
+  prod:
+    needs: staging
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: prod
+    secrets: inherit
