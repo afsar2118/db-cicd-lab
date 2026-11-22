@@ -113,3 +113,56 @@ jobs:
 
       - name: Show migration history
         run: $FLYWAY info
+
+  validate_landing:
+    name: Migrate and test landing (raw + ctl) on a throwaway Postgres
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      FLYWAY: >-
+        docker run --rm --network host
+        -v ${{ github.workspace }}/db/landing/migrations:/flyway/sql
+        flyway/flyway:11.8.0
+        -url=jdbc:postgresql://localhost:5432/ci
+        -user=postgres -password=postgres
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: ci
+
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Apply migrations to an empty database
+        run: $FLYWAY migrate
+
+      - name: Re-run migrate (must apply nothing)
+        run: |
+          $FLYWAY migrate | tee second_run.log
+          grep -q "up to date" second_run.log
+
+      - name: Run SQL tests
+        run: |
+          for f in db/landing/tests/*.sql; do
+            echo "== $f"
+            psql -v ON_ERROR_STOP=1 -f "$f"
+          done
+
+      - name: Show migration history
+        run: $FLYWAY info

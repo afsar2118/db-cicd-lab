@@ -1,0 +1,21 @@
+# What the extract job copies: source view -> raw landing table.
+# rename: source column (after lowercasing) -> raw column. Must match tools/gen_landing_ddl.py RENAMES.
+source_system: src_sf          # recorded in ctl.load_log; becomes "snowflake" when the source switches
+
+sources:
+  - source: fin_reporting.dp_title_actuals_rpt_vw
+    target: raw.dp_title_actuals_rpt_vw
+  - source: fin_reporting.dp_pnf_rpt_vw
+    target: raw.dp_pnf_rpt_vw
+    rename:
+      "f&p_segment": fp_segment
+  - source: fin_reporting.dp_cost_center_actuals_rpt_vw
+    target: raw.dp_cost_center_actuals_rpt_vw
+  - source: fin_reporting.dp_acct_hier_rpt_vw
+    target: raw.dp_acct_hier_rpt_vw
+  - source: fin_reporting.dp_cost_ctr_hier_rpt_vw
+    target: raw.dp_cost_ctr_hier_rpt_vw
+  - source: fin_reporting.dp_business_area_hier_rpt_vw
+    target: raw.dp_business_area_hier_rpt_vw
+  - source: fin_reporting.dp_company_code_hier_rpt_vw
+    target: raw.dp_company_code_hier_rpt_vw

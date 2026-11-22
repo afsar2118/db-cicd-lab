@@ -6,6 +6,7 @@ name: DB CD
 # Two independent chains run on the same server:
 #   dev/staging/prod             -> comments model (vars.DB_NAME, db/migrations)
 #   src_dev/src_staging/src_prod -> source stand-in for Snowflake (src_sf_<env>, db/src_sf)
+#   lnd_dev/lnd_staging/lnd_prod -> landing zone: raw + ctl (landing_<env>, db/landing)
 
 on:
   push:
@@ -68,4 +69,33 @@ jobs:
       database: src_sf_prod
       migrations_path: db/src_sf/migrations
       tests_path: db/src_sf/tests
+    secrets: inherit
+
+  lnd_dev:
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: dev
+      database: landing_dev
+      migrations_path: db/landing/migrations
+      tests_path: db/landing/tests
+    secrets: inherit
+
+  lnd_staging:
+    needs: lnd_dev
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: staging
+      database: landing_staging
+      migrations_path: db/landing/migrations
+      tests_path: db/landing/tests
+    secrets: inherit
+
+  lnd_prod:
+    needs: lnd_staging
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: prod
+      database: landing_prod
+      migrations_path: db/landing/migrations
+      tests_path: db/landing/tests
     secrets: inherit
