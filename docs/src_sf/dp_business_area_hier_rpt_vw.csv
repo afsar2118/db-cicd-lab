@@ -1,0 +1,37 @@
+ordinal,column_name,snowflake_column,in_base,view_expression,pg_type,type_status,base_column
+1,business_area_hierarchy_parent,BUSINESS_AREA_HIERARCHY_PARENT,Y,"CASE WHEN TRIM(ba_hierarchy_parent) IN ('?', '') THEN NULL ELSE ba_hierarchy_parent END",text,ASSUMED,ba_hierarchy_parent
+2,business_area_hierarchy_parent_desc,BUSINESS_AREA_HIERARCHY_PARENT_DESC,Y,"CASE WHEN TRIM(ba_hierarchy_parent_desc) IN ('?', '') THEN NULL ELSE ba_hierarchy_parent_desc END",text,ASSUMED,ba_hierarchy_parent_desc
+3,business_area_hierarchy_parent_seqnr,BUSINESS_AREA_HIERARCHY_PARENT_SEQNR,Y,"CASE WHEN TRIM(ba_hierarchy_parent_seqnr) IN ('?', '') THEN NULL ELSE ba_hierarchy_parent_seqnr END",text,ASSUMED,ba_hierarchy_parent_seqnr
+4,business_area_hl00,BUSINESS_AREA_HL00,Y,"CASE WHEN TRIM(ba_l00) IN ('?', '') THEN NULL ELSE ba_l00 END",text,ASSUMED,ba_l00
+5,business_area_hl00_desc,BUSINESS_AREA_HL00_DESC,Y,"CASE WHEN TRIM(ba_l00_desc) IN ('?', '') THEN NULL ELSE ba_l00_desc END",text,ASSUMED,ba_l00_desc
+6,business_area_hl00_seqnr,BUSINESS_AREA_HL00_SEQNR,Y,"CASE WHEN TRIM(ba_l00_seqnr) IN ('?', '') THEN NULL ELSE ba_l00_seqnr END",text,ASSUMED,ba_l00_seqnr
+7,business_area_hl01,BUSINESS_AREA_HL01,Y,"CASE WHEN TRIM(ba_l01) IN ('?', '') THEN NULL ELSE ba_l01 END",text,ASSUMED,ba_l01
+8,business_area_hl01_desc,BUSINESS_AREA_HL01_DESC,Y,"CASE WHEN TRIM(ba_l01_desc) IN ('?', '') THEN NULL ELSE ba_l01_desc END",text,ASSUMED,ba_l01_desc
+9,business_area_hl01_seqnr,BUSINESS_AREA_HL01_SEQNR,Y,"CASE WHEN TRIM(ba_l01_seqnr) IN ('?', '') THEN NULL ELSE ba_l01_seqnr END",text,ASSUMED,ba_l01_seqnr
+10,business_area_hl02,BUSINESS_AREA_HL02,Y,"CASE WHEN TRIM(ba_l02) IN ('?', '') THEN NULL ELSE ba_l02 END",text,ASSUMED,ba_l02
+11,business_area_hl02_desc,BUSINESS_AREA_HL02_DESC,Y,"CASE WHEN TRIM(ba_l02_desc) IN ('?', '') THEN NULL ELSE ba_l02_desc END",text,ASSUMED,ba_l02_desc
+12,business_area_hl02_seqnr,BUSINESS_AREA_HL02_SEQNR,Y,"CASE WHEN TRIM(ba_l02_seqnr) IN ('?', '') THEN NULL ELSE ba_l02_seqnr END",text,ASSUMED,ba_l02_seqnr
+13,business_area_hl03,BUSINESS_AREA_HL03,Y,"CASE WHEN TRIM(ba_l03) IN ('?', '') THEN NULL ELSE ba_l03 END",text,ASSUMED,ba_l03
+14,business_area_hl03_desc,BUSINESS_AREA_HL03_DESC,Y,"CASE WHEN TRIM(ba_l03_desc) IN ('?', '') THEN NULL ELSE ba_l03_desc END",text,ASSUMED,ba_l03_desc
+15,business_area_hl03_seqnr,BUSINESS_AREA_HL03_SEQNR,Y,"CASE WHEN TRIM(ba_l03_seqnr) IN ('?', '') THEN NULL ELSE ba_l03_seqnr END",text,ASSUMED,ba_l03_seqnr
+16,business_area_hl04,BUSINESS_AREA_HL04,Y,"CASE WHEN TRIM(ba_l04) IN ('?', '') THEN NULL ELSE ba_l04 END",text,ASSUMED,ba_l04
+17,business_area_hl04_desc,BUSINESS_AREA_HL04_DESC,Y,"CASE WHEN TRIM(ba_l04_desc) IN ('?', '') THEN NULL ELSE ba_l04_desc END",text,ASSUMED,ba_l04_desc
+18,business_area_hl04_seqnr,BUSINESS_AREA_HL04_SEQNR,Y,"CASE WHEN TRIM(ba_l04_seqnr) IN ('?', '') THEN NULL ELSE ba_l04_seqnr END",text,ASSUMED,ba_l04_seqnr
+19,business_area_hl05,BUSINESS_AREA_HL05,Y,"CASE WHEN TRIM(ba_l05) IN ('?', '') THEN NULL ELSE ba_l05 END",text,ASSUMED,ba_l05
+20,business_area_hl05_desc,BUSINESS_AREA_HL05_DESC,Y,"CASE WHEN TRIM(ba_l05_desc) IN ('?', '') THEN NULL ELSE ba_l05_desc END",text,ASSUMED,ba_l05_desc
+21,business_area_hl05_seqnr,BUSINESS_AREA_HL05_SEQNR,Y,"CASE WHEN TRIM(ba_l05_seqnr) IN ('?', '') THEN NULL ELSE ba_l05_seqnr END",text,ASSUMED,ba_l05_seqnr
+22,business_area_hl06,BUSINESS_AREA_HL06,Y,"CASE WHEN TRIM(ba_l06) IN ('?', '') THEN NULL ELSE ba_l06 END",text,ASSUMED,ba_l06
+23,business_area_hl06_desc,BUSINESS_AREA_HL06_DESC,Y,"CASE WHEN TRIM(ba_l06_desc) IN ('?', '') THEN NULL ELSE ba_l06_desc END",text,ASSUMED,ba_l06_desc
+24,business_area_hl06_seqnr,BUSINESS_AREA_HL06_SEQNR,Y,"CASE WHEN TRIM(ba_l06_seqnr) IN ('?', '') THEN NULL ELSE ba_l06_seqnr END",text,ASSUMED,ba_l06_seqnr
+25,business_area_hl07,BUSINESS_AREA_HL07,Y,"CASE WHEN TRIM(ba_l07) IN ('?', '') THEN NULL ELSE ba_l07 END",text,ASSUMED,ba_l07
+26,business_area_hl07_desc,BUSINESS_AREA_HL07_DESC,Y,"CASE WHEN TRIM(ba_l07_desc) IN ('?', '') THEN NULL ELSE ba_l07_desc END",text,ASSUMED,ba_l07_desc
+27,business_area_hl07_seqnr,BUSINESS_AREA_HL07_SEQNR,Y,"CASE WHEN TRIM(ba_l07_seqnr) IN ('?', '') THEN NULL ELSE ba_l07_seqnr END",text,ASSUMED,ba_l07_seqnr
+28,business_area_hierarchy,BUSINESS_AREA_HIERARCHY,Y,"CASE WHEN TRIM(business_area) IN ('?', '') THEN NULL ELSE business_area END",text,ASSUMED,business_area
+29,business_area_hierarchy_desc,BUSINESS_AREA_HIERARCHY_DESC,Y,"CASE WHEN TRIM(business_area_desc) IN ('?', '') THEN NULL ELSE business_area_desc END",text,ASSUMED,business_area_desc
+30,business_area_hierarchy_seqnr,BUSINESS_AREA_HIERARCHY_SEQNR,Y,"CASE WHEN TRIM(business_area_seqnr) IN ('?', '') THEN NULL ELSE business_area_seqnr END",text,ASSUMED,business_area_seqnr
+31,dw_create_dtm,DW_CREATE_DTM,Y,dw_create_dtm,timestamp,ASSUMED,dw_create_dtm
+32,dw_created_by,DW_CREATED_BY,Y,dw_created_by,text,ASSUMED,dw_created_by
+33,dw_update_dtm,DW_UPDATE_DTM,Y,dw_update_dtm,timestamp,ASSUMED,dw_update_dtm
+34,dw_updated_by,DW_UPDATED_BY,Y,dw_updated_by,text,ASSUMED,dw_updated_by
+35,src_delete_flg,SRC_DELETE_FLG,Y,src_delete_flg,text,ASSUMED,src_delete_flg
+36,src_system,SRC_SYSTEM,Y,src_system,text,ASSUMED,src_system

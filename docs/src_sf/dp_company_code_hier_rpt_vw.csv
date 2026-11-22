@@ -1,0 +1,37 @@
+ordinal,column_name,snowflake_column,in_base,view_expression,pg_type,type_status,base_column
+1,company_code_hierarchy_parent,COMPANY_CODE_HIERARCHY_PARENT,Y,"CASE WHEN TRIM(ccode_hierarchy_parent) IN ('?', '') THEN NULL ELSE ccode_hierarchy_parent END",text,ASSUMED,ccode_hierarchy_parent
+2,company_code_hierarchy_parent_desc,COMPANY_CODE_HIERARCHY_PARENT_DESC,Y,"CASE WHEN TRIM(ccode_hierarchy_parent_desc) IN ('?', '') THEN NULL ELSE ccode_hierarchy_parent_desc END",text,ASSUMED,ccode_hierarchy_parent_desc
+3,company_code_hierarchy_parent_seqnr,COMPANY_CODE_HIERARCHY_PARENT_SEQNR,Y,"CASE WHEN TRIM(ccode_hierarchy_parent_seqnr) IN ('?', '') THEN NULL ELSE ccode_hierarchy_parent_seqnr END",text,ASSUMED,ccode_hierarchy_parent_seqnr
+4,company_code_l00,COMPANY_CODE_L00,Y,"CASE WHEN TRIM(ccode_l00) IN ('?', '') THEN NULL ELSE ccode_l00 END",text,ASSUMED,ccode_l00
+5,company_code_l00_desc,COMPANY_CODE_L00_DESC,Y,"CASE WHEN TRIM(ccode_l00_desc) IN ('?', '') THEN NULL ELSE ccode_l00_desc END",text,ASSUMED,ccode_l00_desc
+6,company_code_l00_seqnr,COMPANY_CODE_L00_SEQNR,Y,"CASE WHEN TRIM(ccode_l00_seqnr) IN ('?', '') THEN NULL ELSE ccode_l00_seqnr END",text,ASSUMED,ccode_l00_seqnr
+7,company_code_l01,COMPANY_CODE_L01,Y,"CASE WHEN TRIM(ccode_l01) IN ('?', '') THEN NULL ELSE ccode_l01 END",text,ASSUMED,ccode_l01
+8,company_code_l01_desc,COMPANY_CODE_L01_DESC,Y,"CASE WHEN TRIM(ccode_l01_desc) IN ('?', '') THEN NULL ELSE ccode_l01_desc END",text,ASSUMED,ccode_l01_desc
+9,company_code_l01_seqnr,COMPANY_CODE_L01_SEQNR,Y,"CASE WHEN TRIM(ccode_l01_seqnr) IN ('?', '') THEN NULL ELSE ccode_l01_seqnr END",text,ASSUMED,ccode_l01_seqnr
+10,company_code_l02,COMPANY_CODE_L02,Y,"CASE WHEN TRIM(ccode_l02) IN ('?', '') THEN NULL ELSE ccode_l02 END",text,ASSUMED,ccode_l02
+11,company_code_l02_desc,COMPANY_CODE_L02_DESC,Y,"CASE WHEN TRIM(ccode_l02_desc) IN ('?', '') THEN NULL ELSE ccode_l02_desc END",text,ASSUMED,ccode_l02_desc
+12,company_code_l02_seqnr,COMPANY_CODE_L02_SEQNR,Y,"CASE WHEN TRIM(ccode_l02_seqnr) IN ('?', '') THEN NULL ELSE ccode_l02_seqnr END",text,ASSUMED,ccode_l02_seqnr
+13,company_code_l03,COMPANY_CODE_L03,Y,"CASE WHEN TRIM(ccode_l03) IN ('?', '') THEN NULL ELSE ccode_l03 END",text,ASSUMED,ccode_l03
+14,company_code_l03_desc,COMPANY_CODE_L03_DESC,Y,"CASE WHEN TRIM(ccode_l03_desc) IN ('?', '') THEN NULL ELSE ccode_l03_desc END",text,ASSUMED,ccode_l03_desc
+15,company_code_l03_seqnr,COMPANY_CODE_L03_SEQNR,Y,"CASE WHEN TRIM(ccode_l03_seqnr) IN ('?', '') THEN NULL ELSE ccode_l03_seqnr END",text,ASSUMED,ccode_l03_seqnr
+16,company_code_l04,COMPANY_CODE_L04,Y,"CASE WHEN TRIM(ccode_l04) IN ('?', '') THEN NULL ELSE ccode_l04 END",text,ASSUMED,ccode_l04
+17,company_code_l04_desc,COMPANY_CODE_L04_DESC,Y,"CASE WHEN TRIM(ccode_l04_desc) IN ('?', '') THEN NULL ELSE ccode_l04_desc END",text,ASSUMED,ccode_l04_desc
+18,company_code_l04_seqnr,COMPANY_CODE_L04_SEQNR,Y,"CASE WHEN TRIM(ccode_l04_seqnr) IN ('?', '') THEN NULL ELSE ccode_l04_seqnr END",text,ASSUMED,ccode_l04_seqnr
+19,company_code_l05,COMPANY_CODE_L05,Y,"CASE WHEN TRIM(ccode_l05) IN ('?', '') THEN NULL ELSE ccode_l05 END",text,ASSUMED,ccode_l05
+20,company_code_l05_desc,COMPANY_CODE_L05_DESC,Y,"CASE WHEN TRIM(ccode_l05_desc) IN ('?', '') THEN NULL ELSE ccode_l05_desc END",text,ASSUMED,ccode_l05_desc
+21,company_code_l05_seqnr,COMPANY_CODE_L05_SEQNR,Y,"CASE WHEN TRIM(ccode_l05_seqnr) IN ('?', '') THEN NULL ELSE ccode_l05_seqnr END",text,ASSUMED,ccode_l05_seqnr
+22,company_code_l06,COMPANY_CODE_L06,Y,"CASE WHEN TRIM(ccode_l06) IN ('?', '') THEN NULL ELSE ccode_l06 END",text,ASSUMED,ccode_l06
+23,company_code_l06_desc,COMPANY_CODE_L06_DESC,Y,"CASE WHEN TRIM(ccode_l06_desc) IN ('?', '') THEN NULL ELSE ccode_l06_desc END",text,ASSUMED,ccode_l06_desc
+24,company_code_l06_seqnr,COMPANY_CODE_L06_SEQNR,Y,"CASE WHEN TRIM(ccode_l06_seqnr) IN ('?', '') THEN NULL ELSE ccode_l06_seqnr END",text,ASSUMED,ccode_l06_seqnr
+25,company_code_l07,COMPANY_CODE_L07,Y,"CASE WHEN TRIM(ccode_l07) IN ('?', '') THEN NULL ELSE ccode_l07 END",text,ASSUMED,ccode_l07
+26,company_code_l07_desc,COMPANY_CODE_L07_DESC,Y,"CASE WHEN TRIM(ccode_l07_desc) IN ('?', '') THEN NULL ELSE ccode_l07_desc END",text,ASSUMED,ccode_l07_desc
+27,company_code_l07_seqnr,COMPANY_CODE_L07_SEQNR,Y,"CASE WHEN TRIM(ccode_l07_seqnr) IN ('?', '') THEN NULL ELSE ccode_l07_seqnr END",text,ASSUMED,ccode_l07_seqnr
+28,company_code,COMPANY_CODE,Y,"CASE WHEN TRIM(company_code) IN ('?', '') THEN NULL ELSE company_code END",text,ASSUMED,company_code
+29,company_code_desc,COMPANY_CODE_DESC,Y,"CASE WHEN TRIM(company_code_desc) IN ('?', '') THEN NULL ELSE company_code_desc END",text,ASSUMED,company_code_desc
+30,company_code_seqnr,COMPANY_CODE_SEQNR,Y,"CASE WHEN TRIM(company_code_seqnr) IN ('?', '') THEN NULL ELSE company_code_seqnr END",text,ASSUMED,company_code_seqnr
+31,dw_create_dtm,DW_CREATE_DTM,Y,dw_create_dtm,timestamp,ASSUMED,dw_create_dtm
+32,dw_created_by,DW_CREATED_BY,Y,dw_created_by,text,ASSUMED,dw_created_by
+33,dw_update_dtm,DW_UPDATE_DTM,Y,dw_update_dtm,timestamp,ASSUMED,dw_update_dtm
+34,dw_updated_by,DW_UPDATED_BY,Y,dw_updated_by,text,ASSUMED,dw_updated_by
+35,src_delete_flg,SRC_DELETE_FLG,Y,src_delete_flg,text,ASSUMED,src_delete_flg
+36,src_system,SRC_SYSTEM,Y,src_system,text,ASSUMED,src_system
