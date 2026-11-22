@@ -3,6 +3,9 @@ name: DB CD
 # After a merge to main: dev -> staging -> prod.
 # Each stage starts only if the previous one succeeded.
 # prod also waits for a required reviewer to approve.
+# Two independent chains run on the same server:
+#   dev/staging/prod             -> comments model (vars.DB_NAME, db/migrations)
+#   src_dev/src_staging/src_prod -> source stand-in for Snowflake (src_sf_<env>, db/src_sf)
 
 on:
   push:
@@ -36,4 +39,33 @@ jobs:
     uses: ./.github/workflows/_deploy-db.yml
     with:
       environment: prod
+    secrets: inherit
+
+  src_dev:
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: dev
+      database: src_sf_dev
+      migrations_path: db/src_sf/migrations
+      tests_path: db/src_sf/tests
+    secrets: inherit
+
+  src_staging:
+    needs: src_dev
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: staging
+      database: src_sf_staging
+      migrations_path: db/src_sf/migrations
+      tests_path: db/src_sf/tests
+    secrets: inherit
+
+  src_prod:
+    needs: src_staging
+    uses: ./.github/workflows/_deploy-db.yml
+    with:
+      environment: prod
+      database: src_sf_prod
+      migrations_path: db/src_sf/migrations
+      tests_path: db/src_sf/tests
     secrets: inherit

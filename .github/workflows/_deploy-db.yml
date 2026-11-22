@@ -2,6 +2,9 @@ name: Deploy DB (reusable)
 
 # Same steps for every environment. The caller passes the environment
 # name; GitHub then loads that environment's variables and DB_PASSWORD.
+# Optional inputs let one caller deploy a different database/folder on the
+# same server (e.g. the src_sf source stand-in). Left empty, they default to
+# the comments model: vars.DB_NAME, db/migrations, db/tests.
 
 on:
   workflow_call:
@@ -9,20 +12,35 @@ on:
       environment:
         required: true
         type: string
+      database:
+        description: "Database to migrate; empty = the environment's vars.DB_NAME"
+        required: false
+        type: string
+        default: ""
+      migrations_path:
+        description: "Folder of Flyway scripts"
+        required: false
+        type: string
+        default: db/migrations
+      tests_path:
+        description: "Folder of rollback-only SQL tests"
+        required: false
+        type: string
+        default: db/tests
 
 jobs:
   deploy:
-    name: Migrate ${{ inputs.environment }}
+    name: Migrate ${{ inputs.environment }}${{ inputs.database && format(' ({0})', inputs.database) || '' }}
     runs-on: [self-hosted, local-db]
     environment: ${{ inputs.environment }}
     env:
-      FLYWAY_URL: jdbc:postgresql://${{ vars.DB_HOST }}:${{ vars.DB_PORT }}/${{ vars.DB_NAME }}
+      FLYWAY_URL: jdbc:postgresql://${{ vars.DB_HOST }}:${{ vars.DB_PORT }}/${{ inputs.database || vars.DB_NAME }}
       FLYWAY_USER: ${{ vars.DB_USER }}
       FLYWAY_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      FLYWAY_LOCATIONS: filesystem:db/migrations
+      FLYWAY_LOCATIONS: filesystem:${{ inputs.migrations_path }}
       PGHOST: ${{ vars.DB_HOST }}
       PGPORT: ${{ vars.DB_PORT }}
-      PGDATABASE: ${{ vars.DB_NAME }}
+      PGDATABASE: ${{ inputs.database || vars.DB_NAME }}
       PGUSER: ${{ vars.DB_USER }}
       PGPASSWORD: ${{ secrets.DB_PASSWORD }}
     steps:
@@ -37,7 +55,7 @@ jobs:
 
       - name: Smoke test (rolls back, leaves no rows)
         run: |
-          for f in db/tests/*.sql; do
+          for f in ${{ inputs.tests_path }}/*.sql; do
             echo "== $f"
             psql -v ON_ERROR_STOP=1 -f "$f"
           done
@@ -46,7 +64,7 @@ jobs:
         run: |
           flyway info | tee info.txt
           {
-            echo "### ${{ inputs.environment }}"
+            echo "### ${{ inputs.environment }} - $PGDATABASE"
             echo '```'
             cat info.txt
             echo '```'
